@@ -25,7 +25,7 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 
 * [x] Any HTML page elements (including game buttons) has been styled differently than in the tutorial
-* [ ] Buttons use a pitch (frequency) other than the ones in the tutorial
+* [X] Buttons use a pitch (frequency) other than the ones in the tutorial
 * [x] More than 4 functional game buttons
 * [x] Playback speeds up on each turn
 * [x] Computer picks a different pattern each time the game is played
@@ -53,6 +53,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
+
 In order to use Math.Random in Javascript, I utilized this website's tutorial on how
 to use Math.Random to return a random Integer between 0 and the number of buttons I had created. 
 By using this returned number + 1, I was able to utilize it in the randomization of my pattern.
