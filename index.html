@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>Color Memory Game!</title>
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <!--
+      This is the body of the page
+      Look at the elements and see how they appear in the rendered page on the right
+      Each element is defined using tags, with < and > indicating where each one opens and closes
+      There are elements for sections of the page, images, text, and more
+      The elements include attributes referenced in the CSS for the page style
+    -->
+
+    <!-- The wrapper and content divs set margins and positioning -->
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- This is the start of content for our page -->
+        <h1 class="title">Color Memory Game</h1>
+
+             
+        <!-- Instructions on using this project -->
+        <div class="instructions">
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopitStartAudio.m4a?v=1647555040496" id="startGameAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost1.mp3?v=1647552605436" id="loseAudio1"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost2.mp3?v=1647552605212" id="loseAudio2"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost3.mp3?v=1647552606269" id="loseAudio3"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopitWinAudio.m4a?v=1647552650691" id="winAudio"></audio>
+          <p>
+            Welcome to the game! Repeat back the pattern by pressing buttons.
+            <button id="startBtn" onclick="startGame()"> 
+              Start
+            </button> 
+            <button id="stopBtn" class="hidden" onclick="stopGame()">
+              End
+            </button>
+          </p>
+        </div>
+        
+        <div id="strike area">
+          <button id="strike1">    
+          </button>
+          <button id="strike2">       
+          </button>
+           <button id="strike3">
+          </button>
+          <!-- strike audios-->
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake1.mp3?v=1647552604986" id="strikeAudio1"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake2.mp3?v=1647552605565" id="strikeAudio2"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake3.mp3?v=1647552605698" id="strikeAudio3"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake4.mp3?v=1647552605135" id="strikeAudio4"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake5.mp3?v=1647552606103" id="strikeAudio5"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake6.mp3?v=1647552605172" id="strikeAudio6"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake7.mp3?v=1647552605490" id="strikeAudio7"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/mistake8.mp3?v=1647552605236" id="strikeAudio8"></audio>
+        </div>
+        
+        
+        <div id="gameButtonArea">
+          <!-- prompt audios-->
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/twistitprompt.mp3?v=1647473814197" id="twistitPrompt"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopitprompt.mp3?v=1647554580505" id="bopitPrompt"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/spinitprompt.mp3?v=1647473811394" id="spinitPrompt"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/flickitprompt.mp3?v=1647473811660" id="flickitPrompt"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/shakeitprompot.mp3?v=1647473811533" id="shakeitPrompt"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/pullitprompt.mp3?v=1647473812240" id="pullitPrompt"></audio>
+          
+          <!-- click audios-->
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/twistit.mp3?v=1647473813870" id="twistitAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopit.mp3?v=1647473814137" id="bopitAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/spinit.mp3?v=1647473814407" id="spinitAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/flickit.mp3?v=1647473814071" id="flickitAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/shakeit.mp3?v=1647473814286" id="shakeitAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/pullitaudio.mp3?v=1647473813980" id="pullitAudio"></audio>
+          
+          
+          <button id="button1" onclick="guess(1)" >
+              <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/twist.png?v=164746909725" alt="twist it" width="165" height="165" style="float:right">
+          </button> 
+          <script>  document.getElementById("button1").addEventListener("click",function(){
+               document.getElementById("twistitAudio").play();
+               }
+               );
+          </script>
+          
+          <button id="button2" onclick="guess(2)" >
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopit.png?v=1647469099444" alt="bop it" width="165" height="165" style="float:right">
+          </button>
+          <script>  document.getElementById("button2").addEventListener("click",function(){
+               document.getElementById("bopitAudio").play();
+               }
+               );
+          </script>
+          
+          <button id="button3" onclick="guess(3)" >
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/spinit.png?v=1647469098676" alt="spin it" width="165" height="165" style="float:right">
+          </button> 
+          <script>  document.getElementById("button3").addEventListener("click",function(){
+               document.getElementById("spinitAudio").play();
+               }
+               );
+          </script>
+          
+          <button id="button4" onclick="guess(4)" >
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/flickit.png?v=1647469097" alt="flick it" width="165" height="165" style="float:right">
+          </button>
+          <script>  document.getElementById("button4").addEventListener("click",function(){
+               document.getElementById("flickitAudio").play();
+               }
+               );
+          </script>
+          
+          <button id="button5" onclick="guess(5)" >
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/shakeit.png?v=1647469085" alt="shake it" width="165" height="165" style="float:right">
+          </button> 
+          <script>  document.getElementById("button5").addEventListener("click",function(){
+               document.getElementById("shakeitAudio").play();
+               }
+               );
+          </script>
+          
+          <button id="button6" onclick="guess(6)" >
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/pullit.png?v=1647469099286" alt="pull it" width="165" height="165" style="float:right">
+          </button> 
+          <script>  document.getElementById("button6").addEventListener("click",function(){
+               document.getElementById("pullitAudio").play();
+               }
+               );
+          </script>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
