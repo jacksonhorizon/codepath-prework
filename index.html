@@ -46,7 +46,7 @@
           <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost1.mp3?v=1647552605436" id="loseAudio1"></audio>
           <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost2.mp3?v=1647552605212" id="loseAudio2"></audio>
           <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/lost3.mp3?v=1647552606269" id="loseAudio3"></audio>
-          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopitWinAudio.m4a?v=1647552650691" id="winAudio"></audio>
+          <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopitWinAudio.m4a?v=1647559315164" id="winAudio"></audio>
           <p>
             Welcome to the game! Repeat back the pattern by pressing buttons.
             <button id="startBtn" onclick="startGame()"> 
@@ -57,7 +57,15 @@
             </button>
           </p>
         </div>
+          <p id="countMessage" class="hidden"> Timer: You have 12 seconds from your first correct guess to complete the pattern.</p>
+        <p id = "count" class= "hidden">
+        </p>
+        </div>
         
+        <div> <progress value="0" max="10" id="progressBar"></progress>
+      </div>
+          
+      
         <div id="strike area">
           <button id="strike1">    
           </button>
@@ -95,14 +103,17 @@
           <audio src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/pullitaudio.mp3?v=1647473813980" id="pullitAudio"></audio>
           
           
+  
+       
           <button id="button1" onclick="guess(1)" >
-              <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/twist.png?v=164746909725" alt="twist it" width="165" height="165" style="float:right">
+            <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/twist.png?v=164746909725" alt="twist it" width="165" height="165" style="float:right">
           </button> 
           <script>  document.getElementById("button1").addEventListener("click",function(){
                document.getElementById("twistitAudio").play();
                }
                );
           </script>
+          
           
           <button id="button2" onclick="guess(2)" >
             <img src="https://cdn.glitch.global/2cd27742-4faf-430d-9254-e60f34a8706c/bopit.png?v=1647469099444" alt="bop it" width="165" height="165" style="float:right">
@@ -151,6 +162,5 @@
           
         </div>
       </div>
-    </div>
   </body>
 </html>
