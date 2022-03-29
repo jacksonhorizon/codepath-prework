@@ -48,10 +48,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](gif1-link-here)
-![](gif2-link-here)
-![](gif3-link-here)
-![](gif4-link-here)
+![](https://i.imgur.com/5O3BUnO.gif)
+![](https://i.imgur.com/8E0oxie.gif)
+![](https://i.imgur.com/hnCB2Bt.gif)
+![](https://i.imgur.com/DYKNecs.gif)
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
@@ -119,7 +119,8 @@ If you click the same button twice too quickly, it only plays the audio once.
 
 One huge question I have is how to efficiently debug code. During this pre-word I often ran into an issue where I mistyped 1 word in my 
 JavaScript file that ended up crashing the entire project. While Console Logs were helpful, I ended up spending a lot of time during my
-testing trying to figure out if my newly written code was crashing, of if the issue was with a hidden bug that I failed to notice beforehand.
+testing trying to figure out if my newly written code was crashing, of if the issue was with a hidden bug that I failed to notice beforehand. 
+While I did get to use the developer console, I did not use it as efficiently as I could have.
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
 

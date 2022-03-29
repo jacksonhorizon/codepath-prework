@@ -21,6 +21,7 @@ var interval;
 
 function startGame(){
   clearInterval(interval);
+  document.getElementById("count").innerHTML=''
   resetProgress();
   //initialize game variables
   playStartGameAudio();
@@ -179,9 +180,9 @@ function initializeTimer(){
   interval = setInterval(function(){
   document.getElementById("count").innerHTML=count;
   count--;
-  if (count === 0){
+  if (count === -1){
     clearInterval(interval);
-    document.getElementById("count").innerHTML='Done';
+    document.getElementById("count").innerHTML='';
     // or...
     loseGame();
     }  
