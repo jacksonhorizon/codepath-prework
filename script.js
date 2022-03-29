@@ -17,8 +17,11 @@ var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
 var clueHoldTime = 1000; //how long to hold each clue's light/sound
 var strikes = 0;
+var interval;
 
 function startGame(){
+  clearInterval(interval);
+  resetProgress();
   //initialize game variables
   playStartGameAudio();
   progress = 0;
@@ -26,33 +29,42 @@ function startGame(){
   gamePlaying = true;
   // generates random pattern
   for (var i = 0; i < 9; i++){
-    pattern[i] = getRandomInt(6) + 1;
+    pattern[i] = getRandomInt(6);
   }
   clearStrikes();
   
-  // swap the Start and Stop buttons
+  // swap the Start and Stop buttons 
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
+  document.getElementById("countMessage").classList.remove("hidden");
+  document.getElementById("count").classList.remove("hidden");
   setTimeout(function(){
     playClueSequence();
-  }, 3700);
+  }, 4000);
 }
 
 function stopGame(){
+  clearInterval(interval);
+  resetProgress();
   gamePlaying = false;
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
+  document.getElementById("countMessage").classList.add("hidden");
+  document.getElementById("count").classList.add("hidden");
   clueHoldTime = 1000;
 }
 
 function getRandomInt(max) {
   // returns random int between 0 and max
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max) + 1;
 }
 
 function lightButton(btn){
   // lights button
+  console.log(btn);
+  var button = document.getElementById("button"+btn);
   document.getElementById("button"+btn).classList.add("lit");
+  console.log(button.outerHTML);
 }
 
 function clearButton(btn){
@@ -83,6 +95,8 @@ function playSingleClue(btn){
 
 function playClueSequence(){
   // decreases clueHoldTime as a percentage of current hold time
+  incrementProgress();
+  clearInterval(interval);
   clueHoldTime -= 0.2 * clueHoldTime;
   guessCounter = 0;
   context.resume()
@@ -90,9 +104,9 @@ function playClueSequence(){
   for(let i=0;i<=progress;i++){ // for each clue that is revealed so far
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    delay += clueHoldTime 
+    delay += clueHoldTime;
     delay += cluePauseTime;
-  }
+  }  
 }
 
 function loseGame(){
@@ -110,6 +124,7 @@ function winGame(){
  	alert("Game Over. You win!");
 }, 2000);//wait 2 seconds
   clearStrikes();
+  document.getElementById("count").classlist.add("hidden");
 }
 
 function guess(btn){
@@ -122,7 +137,7 @@ function guess(btn){
     strikes += 1;
     if (strikes < 3){
       console.log("strike: " + strikes);
-      setTimeout(function(){playStrikeAudio()}, 1300);
+      setTimeout(function(){playStrikeAudio()}, 700);
       setTimeout(function(){lightStrike(strikes)}, 1300);
       return;
     }
@@ -133,11 +148,16 @@ function guess(btn){
   }
   
   guessCounter += 1;
+  
+  if (guessCounter == 1){
+    initializeTimer();
+  }
   if (guessCounter >= pattern.length){
     winGame();
     return;
   } else if (progress == guessCounter - 1){
     progress += 1;
+    clearInterval(interval);
     playClueSequence();
   }
 }
@@ -152,8 +172,30 @@ function clearStrikes(){
   document.getElementById("strike3").classList.remove("lit");
 }
 
+// Timer Function
+function initializeTimer(){
+  document.getElementById("count").classList.remove("hidden");
+  var count = 12;
+  interval = setInterval(function(){
+  document.getElementById("count").innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById("count").innerHTML='Done';
+    // or...
+    loseGame();
+    }  
+  }, 1000);
+}
 
+// Progress bar functions
+function incrementProgress(){
+  document.getElementById("progressBar").value += 1;
+}
 
+function resetProgress(){
+  document.getElementById("progressBar").value = 0;
+}
 
 // Sound Synthesis Functions
 function playStartGameAudio(){

@@ -106,6 +106,7 @@ a:not(.btn--remix):visited {
 .divider {
   padding: 0 1rem;
 }
+
 /******************************************************************************
 END Glitch hello-app default styles
 ******************************************************************************/
@@ -139,6 +140,7 @@ button {
   background-color:  white;
 }
 
+
 #button2 {
   background-color: white;
 }
@@ -159,9 +161,15 @@ button {
   background-color: white;
 }
 
+#progressBar{
+  width: 400px;
+  height: 50px;
+  color: lightgrey;
+}
+
 
 #button1:active, #button1.lit{
-    background: yellow;
+  background: yellow;
 }
 
 #button2:active, #button2.lit{

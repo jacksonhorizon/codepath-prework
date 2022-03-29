@@ -6,7 +6,7 @@
 
 Submitted by: Jackson Covey
 
-Time spent: **#** hours spent in total
+Time spent: **20** hours spent in total
 
 Link to project: https://glitch.com/edit/#!/cake-ash-loganberry
 
@@ -32,7 +32,7 @@ The following **optional** features are implemented:
 * [x] Player only loses after 3 mistakes (instead of on the first mistake)
 * [x] Game button appearance change goes beyond color (e.g. add an image)
 * [x] Game button sound is more complex than a single tone (e.g. an audio file, a chord, a sequence of multiple tones)
-* [ ] User has a limited amount of time to enter their guess on each turn
+* [x] User has a limited amount of time to enter their guess on each turn
 
 The following **additional** features are implemented:
 
@@ -42,6 +42,8 @@ The following **additional** features are implemented:
 - [x] One of 8 different strike audios are selected randomly when guess is incorrect
 - [x] One of 3 audios is selected when game is lost
 - [x] Audio is played when game is won
+- [x] Progress bar added for visual progress through game
+
 
 ## Video Walkthrough (GIF)
 
@@ -73,9 +75,17 @@ worked in the given tutorial.
 [Images](https://www.w3schools.com/tags/tag_img.asp)
 [Audios](https://www.w3schools.com/html/html5_audio.asp)
 
+I then had to use these links in order to understand Intervals and Progress Bars. And then I had to get a basic understanding
+of how to implement a timer using the fourth link.
+
+[ProgressBars](https://www.w3schools.com/w3css/w3css_progressbar.asp)
+[SetIntervals](https://www.w3schools.com/jsref/met_win_setinterval.asp)
+[ClearIntervals](https://www.w3schools.com/jsref/met_win_clearinterval.asp)
+[Timer Code Snippet](https://www.codegrepper.com/code-examples/javascript/add+countdown+timer+to+javascript+quiz)
+
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
 
-The hardest challenge for me was creating the game logic for the guesses. Despite the instructions stating that
+One challenge for me was creating the game logic for the guesses. Despite the instructions stating that
 nested "if" statements were required, I decided to take a different approach because I did not fully grasp exactly
 how progress and guessCounter were interacting with the game. Thus, I decided to check if the guess was wrong, and then
 immediately returned (before the addition of strikes). In retrospect, I took the opposite approach to the solution provided.
@@ -85,6 +95,13 @@ decided to negate the first part of the flow chart. As a result, I ended up with
 this solution works, it does require a -1 on line 116 due to the way I incremented guessCounter. 
 While I could very easily change my code to match the solution provided, which in my opinion is a better formated solution,
 I have decided not to as this was the way I chose to do it initially. 
+
+However, the hardest challenge was creating the timer. Because of the use of Audio, I was unable to get the timer to start
+at the same time after each clue sequence was played. As a result, I was forced to create a different logical approach in order
+to make the timer functional. The timer feature begins after the first guess is entered. This meant that the feature was dependent solely
+on user input. Luckily, the way I structured the game logic allowed for this rather easily. My implementation of this feature does however result
+in the first turn not having a timer; however, this implementation dissuades users from guessing whilst the pattern is being played, as the
+timer will start, and they may not have enough time to guess as the pattern may not have been completed yet.
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
 
@@ -98,28 +115,39 @@ beautiful websites using these languages.
 After exploring how to create the optional features, one of my main questions is how to efficiently use audios. One of the reason this project
 took me so long was because of having to clip specific parts of a singular base audio. This requires tedious decision making on
 exactly where to clip audios. Moreover, there is one known issue with my prework design that I encountered when testing.
-If you click the same button twice too quickly, it only plays the audio once. While it will register the guess correctly, the 
-audio does not reflect as such. I hypothesize that one way to do this would be using .pause(), but honestly I have no
-idea how to fix it.
+If you click the same button twice too quickly, it only plays the audio once. 
+
+One huge question I have is how to efficiently debug code. During this pre-word I often ran into an issue where I mistyped 1 word in my 
+JavaScript file that ended up crashing the entire project. While Console Logs were helpful, I ended up spending a lot of time during my
+testing trying to figure out if my newly written code was crashing, of if the issue was with a hidden bug that I failed to notice beforehand.
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
-If I had a couple more hours to perfect this project, I would probably play around with the UI a bit more. 
+
+If I had a couple more hours to perfect this project, most of my changes would be stylistic rather than function.
 Even though the game is pretty simple, I do not believe the graphics are up to par with what most
 websites utilize. Granted, most websites are made professionally, and as a result it is difficult for a 
 Computer Science student with minimal experience to fully utilize the tools that these languages provide. However,
 given a couple more hours, I would have read more of the css and html documentation into website styling in order to provide 
-a cleaner design. For example, I utilized 3 html buttons that indicate whenever a user
-gets a strike. Using css, I was able to change the button to "lit" whenever a strike was present in my script.js file.
-I feel like there is a better way to do this, but due to my lack of knowledge in web development, I was unable to come up with one.
+a cleaner design. 
 
-In addition, I would actually change the guess() function, because the way that I did it, while functioning, is not as logically
-efficient or as easily understood as the given solution.
-
-Side notes, given that I have used audios that I have manually had to isolate, the quality of each is not
+Given that I have used audios that I have manually had to isolate, the quality of each is not
 consitent. Because I was having to record each audio, I failed to account for volume, and some of my isolation work was not the best.
 This led to either an inconsistency in volume, or the sound byte sounding cut-off. Given extra time, I would eliminate the sound 
 variability by recording each sound at the same volume. Moreover, I would go back into the assets, and using WavePad I would
 attempt to have cleaning audio clips that do not sound as choppy. 
+
+
+In terms of functional changes, I would actually change the guess() function, because the way that I did it, while functioning, is not as logically
+efficient or as easily understood as the given solution.
+
+I would re-do the timer function. This feature by far took me the longest to implement, maybe roughly 3 hours due to having to look
+so many things up. While I did get a functional timer, it does not necessarily work the way I would prefer it to given the game rules. 
+
+Finally, I would debug the entire project. There are some bugs that I am unsure of how to fix. Some of said bugs might just
+be my unfamiliarity with Glitch; however, occaisionally the progess bar will not work how it was inteded, or the audio will play 
+the game is not running. I stated in my questions about wed-developement section that debugging seemed very tedious, since what little debugging I did
+for this project cost me a couple hours.
+
 
 
 
