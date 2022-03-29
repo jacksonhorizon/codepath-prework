@@ -111,6 +111,9 @@ function playClueSequence(){
 }
 
 function loseGame(){
+  clearInterval(interval);
+  document.getElementById("count").innerHTML=''
+  resetProgress();
   stopGame();
   playLoseGameAudio();
   setTimeout(function(){
