@@ -111,6 +111,9 @@ function playClueSequence(){
 }
 
 function loseGame(){
+  clearInterval(interval);
+  document.getElementById("count").innerHTML=''
+  resetProgress();
   stopGame();
   playLoseGameAudio();
   setTimeout(function(){
@@ -180,7 +183,7 @@ function initializeTimer(){
   interval = setInterval(function(){
   document.getElementById("count").innerHTML=count;
   count--;
-  if (count === -1){
+  if (count === -1 && gamePlaying){
     clearInterval(interval);
     document.getElementById("count").innerHTML='';
     // or...
