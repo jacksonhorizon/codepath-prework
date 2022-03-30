@@ -6,7 +6,7 @@
 
 Submitted by: Jackson Covey
 
-Time spent: **20** hours spent in total
+Time spent: **22** hours spent in total
 
 Link to project: https://glitch.com/edit/#!/cake-ash-loganberry
 
@@ -47,11 +47,16 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough (GIF)
 
-If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](https://i.imgur.com/5O3BUnO.gif)
-![](https://i.imgur.com/8E0oxie.gif)
-![](https://i.imgur.com/hnCB2Bt.gif)
-![](https://i.imgur.com/DYKNecs.gif)
+Beginning of Game:
+![](https://i.imgur.com/x1CdbIk.gif)
+End of Game:
+![](https://i.imgur.com/RyZZN4J.gif)
+Timeout:
+![](https://i.imgur.com/bIcsKyJ.gif)
+Strikeout:
+![](https://i.imgur.com/OrnLLDU.gif)
+
+
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
@@ -91,8 +96,8 @@ how progress and guessCounter were interacting with the game. Thus, I decided to
 immediately returned (before the addition of strikes). In retrospect, I took the opposite approach to the solution provided.
 
 While the provided solution closely follows the provided diagram, where the first "if" statement checks if the guess is correct, and then continues checking for other conditions, I 
-decided to negate the first part of the flow chart. As a result, I ended up with lines 99-110 of my script.js file. While
-this solution works, it does require a -1 on line 116 due to the way I incremented guessCounter. 
+decided to negate the first part of the flow chart. As a result, I ended up with lines 134-162 of my script.js file. While
+this solution works, it does require a -1 due to the way I incremented guessCounter. 
 While I could very easily change my code to match the solution provided, which in my opinion is a better formated solution,
 I have decided not to as this was the way I chose to do it initially. 
 
@@ -101,7 +106,7 @@ at the same time after each clue sequence was played. As a result, I was forced 
 to make the timer functional. The timer feature begins after the first guess is entered. This meant that the feature was dependent solely
 on user input. Luckily, the way I structured the game logic allowed for this rather easily. My implementation of this feature does however result
 in the first turn not having a timer; however, this implementation dissuades users from guessing whilst the pattern is being played, as the
-timer will start, and they may not have enough time to guess as the pattern may not have been completed yet.
+timer will start, and they may not have enough time to guess as the pattern may not have been completed yet. 
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
 
@@ -117,10 +122,9 @@ took me so long was because of having to clip specific parts of a singular base 
 exactly where to clip audios. Moreover, there is one known issue with my prework design that I encountered when testing.
 If you click the same button twice too quickly, it only plays the audio once. 
 
-One huge question I have is how to efficiently debug code. During this pre-word I often ran into an issue where I mistyped 1 word in my 
+Another major question I have is how to efficiently debug code. During this pre-word I often ran into an issue where I mistyped 1 word in my 
 JavaScript file that ended up crashing the entire project. While Console Logs were helpful, I ended up spending a lot of time during my
-testing trying to figure out if my newly written code was crashing, of if the issue was with a hidden bug that I failed to notice beforehand. 
-While I did get to use the developer console, I did not use it as efficiently as I could have.
+testing trying to figure out if my newly written code was crashing, of if the issue was with a hidden bug that I failed to notice beforehand.
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
 
@@ -137,7 +141,6 @@ This led to either an inconsistency in volume, or the sound byte sounding cut-of
 variability by recording each sound at the same volume. Moreover, I would go back into the assets, and using WavePad I would
 attempt to have cleaning audio clips that do not sound as choppy. 
 
-
 In terms of functional changes, I would actually change the guess() function, because the way that I did it, while functioning, is not as logically
 efficient or as easily understood as the given solution.
 
@@ -146,15 +149,15 @@ so many things up. While I did get a functional timer, it does not necessarily w
 
 Finally, I would debug the entire project. There are some bugs that I am unsure of how to fix. Some of said bugs might just
 be my unfamiliarity with Glitch; however, occaisionally the progess bar will not work how it was inteded, or the audio will play 
-the game is not running. I stated in my questions about wed-developement section that debugging seemed very tedious, since what little debugging I did
-for this project cost me a couple hours.
-
-
+the game is not running. Another example, was after a couple days of not working on the project, I came back to Glitch and
+my yellow-button did not work. I spent mayb 2 hours attempting to use the Developer console to fix it, which I did. However, I am not exactly
+sure what I did to fix it, or break it in the first place. I stated in my questions about wed-developement section that debugging 
+seemed very tedious, since what little debugging I did for this project cost me a few hours.
 
 
 ## Interview Recording URL Link
 
-[My 5-minute Interview Recording](your-link-here)
+[My 5-minute Interview Recording](https://arizona.zoom.us/rec/play/dYWvl_MJWhJIWTdVXjCDhwAtQBHhDaCQTFHSafjvaqDBIMzeUytY5M-mS_aOnVtutGDqOyT34QOhDD-_.6ZiRmVxmNGbUduB0?continueMode=true&_x_zm_rtaid=mUy9diQXS2qBbZ935ZP45g.1648680720937.73c8099360644e497de7217b5e8e380c&_x_zm_rhtaid=17)
 
 
 ## License

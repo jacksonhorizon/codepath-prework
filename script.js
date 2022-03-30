@@ -20,9 +20,6 @@ var strikes = 0;
 var interval;
 
 function startGame(){
-  clearInterval(interval);
-  document.getElementById("count").innerHTML=''
-  resetProgress();
   //initialize game variables
   playStartGameAudio();
   progress = 0;
@@ -45,6 +42,7 @@ function startGame(){
 }
 
 function stopGame(){
+  document.getElementById("count").innerHTML='';
   clearInterval(interval);
   resetProgress();
   gamePlaying = false;
@@ -98,6 +96,7 @@ function playClueSequence(){
   // decreases clueHoldTime as a percentage of current hold time
   incrementProgress();
   clearInterval(interval);
+  document.getElementById("count").innerHTML='';
   clueHoldTime -= 0.2 * clueHoldTime;
   guessCounter = 0;
   context.resume()
@@ -136,7 +135,6 @@ function guess(btn){
   if(!gamePlaying){
     return;
   } 
-  
   if(pattern[guessCounter] != btn){
     strikes += 1;
     if (strikes < 3){
@@ -150,9 +148,7 @@ function guess(btn){
       loseGame();
     }
   }
-  
   guessCounter += 1;
-  
   if (guessCounter == 1){
     initializeTimer();
   }
@@ -162,6 +158,7 @@ function guess(btn){
   } else if (progress == guessCounter - 1){
     progress += 1;
     clearInterval(interval);
+    document.getElementById("count").innerHTML='';
     playClueSequence();
   }
 }
